@@ -26,9 +26,11 @@ if sys.argv[2]=="1":
       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyU21iRFFneUhWd01FcVZHWHhJSTVNY0xHbFEiLCJleHAiOjE2OTc2NzQ3NTcsIm5iZiI6MTY4OTg5ODc1Mn0.xL0tvLISfj1xim53flSPQ3VZG572_5UgBqsg8RvQxqo',
       'Content-Type': 'application/json'
     }
+    print(payload)
     conn.request("POST", "/v1/llm/chat/sessions", payload, headers)
     res = conn.getresponse()
     data = json.loads(res.read().decode("utf-8"))
+    print(data)
     file = open('./session_id.txt', 'w')
     file.write(data["session_id"])
     file.close()
@@ -58,7 +60,7 @@ payload = json.dumps({
   "user": "string"
 })
 headers = {
-  'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyU21iRFFneUhWd01FcVZHWHhJSTVNY0xHbFEiLCJleHAiOjE2OTc2NzQ3NTcsIm5iZiI6MTY4OTg5ODc1Mn0.xL0tvLISfj1xim53flSPQ3VZG572_5UgBqsg8RvQxqo',
+  'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyVWJWTWx5Tm9VcnlJMDlUUG5ZODRqZFNFdjUiLCJleHAiOjE2OTQ0ODkzODksIm5iZiI6MTY5NDQ4NzU4NH0.6E2pTOSj5mDcErGNXUBpU0hXC3_Dh1eSTOWaAPjcLuA',
   'Content-Type': 'application/json'
 }
 # conn = http.client.HTTPSConnection("api.sensenova.cn")
